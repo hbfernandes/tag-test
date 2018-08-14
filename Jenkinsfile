@@ -13,8 +13,8 @@ pipeline {
                      credentialsId: 'github-buildguy', 
                      passwordVariable: 'GIT_PASSWORD', 
                      usernameVariable: 'GIT_USERNAME')]) {
-                        sh "git config user.name $GITUSER"
-                        sh "git config user.email $GITUSER"
+                        sh "git config user.name $GIT_USERNAME"
+                        sh "git config user.email $GIT_USERNAME"
 
                         sh("git tag -a ${env.BUILD_NUMBER} -m 'Jenkins'")
                         sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/hbfernandes/tag-test.git --tags')

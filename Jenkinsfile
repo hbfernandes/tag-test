@@ -10,7 +10,7 @@ pipeline {
             steps {
                  withCredentials([
                    usernamePassword(
-                     credentialsId: 'git-pass-credentials-ID', 
+                     credentialsId: 'github-buildguy', 
                      passwordVariable: 'GIT_PASSWORD', 
                      usernameVariable: 'GIT_USERNAME')]) {
                         sh("git tag -a ${env.BUILD_NUMBER} -m 'Jenkins'")
